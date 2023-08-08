@@ -514,6 +514,11 @@ chmod +x delete_image.sh
 ```
 ### Step 2: Empty the s3 from all objects.
 
+Then do:
+```ssh
+terraform destroy
+```
+
 
 
 
