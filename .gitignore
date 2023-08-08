@@ -1,0 +1,7 @@
+.terraform
+.terraform.*
+/project/terraform.tfstate.*
+/project/terraform.tfstate
+/project/.terraform.*
+/project/.terraform
+/api_app_python
