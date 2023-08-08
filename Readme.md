@@ -369,7 +369,7 @@ resource "aws_security_group" "service_security_group" {
 
 You should also be able to access your containers through your load balancer URL:
 
-![Terraform Commands](screenshots/alb-browsing.PNG)
+![Terraform Commands](screenshots/alb-browsing.png)
 
 # Github Action Pipeline
 
