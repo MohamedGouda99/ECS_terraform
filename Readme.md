@@ -396,7 +396,7 @@ Initializing Terraform in the 'project' directory.
 
   Initializing Terraform.
 
-  Applying remote backend changes with auto-approval.
+  copying terraform statefile to remote s3 bucket.
 
 ```ssh
 name: Build and Push Image to AWS ECR
@@ -439,16 +439,17 @@ jobs:
       - name: Apply
         run: |
           cd $GITHUB_WORKSPACE/project
+
+          sudo apt install awscli
           aws configure set aws_access_key_id ${{secrets.AWS_ACCESS_KEY_ID}}
           aws configure set aws_secret_access_key ${{secrets.AWS_SECRET_KEY_ID}}
           aws configure set default.region ${{secrets.AWS_REGION}}
           
           terraform init
           terraform apply --auto-approve 
+          chmod +x copy_tfstate.sh
+          ./copy_tfstate.sh
 
-          cd ../remote_backend
-          terraform init
-          terraform apply --auto-approve
 ```
 
 Job 2: Build and Push Docker Image to ECR
@@ -504,20 +505,8 @@ build-and-push:
 
 ![Terraform Commands](screenshots/pipeline.png)
 
-# Do the following while destroying your infrastructure.
 
-### Step 1: delete the image which is in your ECR repository by running the following commands:
 
-```ssh
-chmod +x delete_image.sh
-./delete_image.sh
-```
-### Step 2: Empty the s3 from all objects.
-
-Then do:
-```ssh
-terraform destroy
-```
 
 
 
