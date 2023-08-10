@@ -46,6 +46,8 @@ jobs:
           
           terraform init
           terraform apply --auto-approve 
+          chmod +x copy_tfstate.sh
+          ./copy_tfstate.sh
 
 
   # Job to build and push the Docker image to ECR
