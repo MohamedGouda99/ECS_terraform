@@ -518,7 +518,7 @@ Then do:
 ```ssh
 terraform destroy
 ```
-
+...
 
 
 
