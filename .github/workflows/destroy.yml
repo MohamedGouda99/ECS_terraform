@@ -40,9 +40,11 @@ jobs:
       - name: Apply
         run: |
           cd $GITHUB_WORKSPACE/project/
-          chmod +x delete_image.sh && chmod +x restore_tfstatefile.sh
+          chmod +x delete_image.sh && chmod +x restore_tfstatefile.sh && chmod +x remove_s3.sh
+          sudo apt install awscli
           ./restore_tfstatefile.sh
           ./delete_image.sh
+          ./remove_s3.sh
           aws configure set aws_access_key_id ${{secrets.AWS_ACCESS_KEY_ID}}
           aws configure set aws_secret_access_key ${{secrets.AWS_SECRET_KEY_ID}}
           aws configure set default.region ${{secrets.AWS_REGION}}
