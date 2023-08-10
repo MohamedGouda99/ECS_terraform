@@ -10,7 +10,7 @@ on:
 # Define the jobs to be executed in the workflow
 jobs:
   # Job to install Terraform and apply infrastructure
-  install_terraform:
+  destroying_infrastructure:
     runs-on: ubuntu-latest
     steps:
       # Step: Check out the repository code
