@@ -452,7 +452,7 @@ jobs:
 
 ```
 
-####And this a copy_tfstate.sh script:
+#### And this a copy_tfstate.sh script:
 
 ```
 #!/bin/bash
