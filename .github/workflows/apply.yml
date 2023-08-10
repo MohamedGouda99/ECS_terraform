@@ -47,9 +47,6 @@ jobs:
           terraform init
           terraform apply --auto-approve 
 
-          cd ../remote_backend
-          terraform init
-          terraform apply --auto-approve 
 
   # Job to build and push the Docker image to ECR
   build-and-push:
