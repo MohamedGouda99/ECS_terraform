@@ -452,6 +452,31 @@ jobs:
 
 ```
 
+####And this a copy_tfstate.sh script:
+
+```
+#!/bin/bash
+
+
+
+# Replace with your S3 bucket name
+BUCKET_NAME="sprints-remote-statefile"
+
+# Replace with your local Terraform state file name
+STATE_FILE="terraform.tfstate"
+
+# Upload the state file to S3 bucket
+aws s3 cp "$STATE_FILE" "s3://$BUCKET_NAME/"
+
+# Print a message indicating the state file upload status
+if [ $? -eq 0 ]; then
+  echo "Terraform state file uploaded successfully to S3 bucket: $BUCKET_NAME"
+else
+  echo "Failed to upload Terraform state file to S3 bucket: $BUCKET_NAME"
+fi
+
+```
+
 Job 2: Build and Push Docker Image to ECR
 This job builds a Docker image from the specified directory, tags it, and pushes it to an Amazon ECR repository. It depends on the successful completion of the previous job. The steps performed are as follows:
 1.	Checks out the repository code.
