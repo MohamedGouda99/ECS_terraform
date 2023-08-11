@@ -1,9 +1,6 @@
 #!/bin/bash
 
-# Set your AWS credentials if not already set in your environment
-# export AWS_ACCESS_KEY_ID="YOUR_ACCESS_KEY"
-# export AWS_SECRET_ACCESS_KEY="YOUR_SECRET_KEY"
-# export AWS_DEFAULT_REGION="us-west-2"  # Replace with your desired region
+
 
 # Replace with your S3 bucket name
 BUCKET_NAME="sprints-remote-statefile"
