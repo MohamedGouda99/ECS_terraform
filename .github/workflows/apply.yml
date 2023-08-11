@@ -78,7 +78,7 @@ jobs:
       - name: Build, Tag, and Push the Image to Amazon ECR
         id: build-image1
         run: |
-          cd $GITHUB_WORKSPACE/app_nodejs
+          cd $GITHUB_WORKSPACE/python_app
           docker build -t my-first-ecr-repo .
           docker tag my-first-ecr-repo:latest 488777800893.dkr.ecr.eu-west-2.amazonaws.com/my-first-ecr-repo:latest
           docker push 488777800893.dkr.ecr.eu-west-2.amazonaws.com/my-first-ecr-repo:latest
